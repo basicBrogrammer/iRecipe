@@ -100,6 +100,10 @@ Rails.application.configure do
 
   config.action_mailer.delivery_method = :smtp
 
+  config.action_mailer.default_url_options = { host: 'freeshelf.herokuapp.com' }
+  config.action_mailer.delivery_method   = :mandrill
+  config.action_mailer.postmark_settings = { :api_key => ENV['POSTMARK_API_KEY'] }
+
   end
 
 
