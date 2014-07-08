@@ -87,7 +87,7 @@ Rails.application.configure do
 
   # production.rb, test.rb, development.rb or application.rb
 
-  IRecipe::Application.configure do
+
     config.action_mailer.smtp_settings = {
         :address   => "smtp.mandrillapp.com",
         :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
@@ -98,8 +98,8 @@ Rails.application.configure do
         :authentication => :plain
     }
 
-    ActionMailer::Base.delivery_method = :smtp
-  end
+  config.action_mailer.delivery_method = :smtp
+
   end
 
 
