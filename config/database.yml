@@ -81,5 +81,3 @@ test:
 production:
   <<: *default
   database: irecipe_production
-#  username: recifree
-#  password: <%= ENV['RECIFREE_DATABASE_PASSWORD'] %>
