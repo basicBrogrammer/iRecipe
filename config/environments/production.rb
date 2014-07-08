@@ -100,5 +100,6 @@ Rails.application.configure do
 
     ActionMailer::Base.delivery_method = :smtp
   end
+  end
 
 
