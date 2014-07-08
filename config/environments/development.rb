@@ -34,7 +34,18 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
-  config.action_mailer.default_url_options = { host: 'localhost:3000' }
+   config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+  # config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
+
+  config.action_mailer.smtp_settings = {
+      :address   => "smtp.mandrillapp.com",
+      :port      => 25, # ports 587 and 2525 are also supported with STARTTLS
+      :enable_starttls_auto => true, # detects and uses STARTTLS
+      :user_name => "app27189379@heroku.com",
+      :password  => "IGM3JMr-lPvrWLLK_IAWPg", # SMTP password is any valid API key
+      :authentication => 'plain', # Mandrill supports 'plain' or 'login'
+      :domain => 'irecipe.com', # your domain to identify your server when connecting
+  }
+  # Missing host to link to! Please provide the :host parameter, set default_url_options[:host], or set :only_path to true
 end

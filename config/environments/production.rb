@@ -88,20 +88,19 @@ Rails.application.configure do
   # production.rb, test.rb, development.rb or application.rb
 
 
-    config.action_mailer.smtp_settings = {
-        :address   => "smtp.mandrillapp.com",
-        :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
-        :enable_starttls_auto => true, # detects and uses STARTTLS
-        :user_name =>      ENV['MANDRILL_USERNAME'],
-        :password =>       ENV['MANDRILL_APIKEY'],
-        :domain =>         'heroku.com',
-        :authentication => :plain
-    }
-
+  # config.action_mailer.default_url_options = { host: 'localhost:3000' }
   config.action_mailer.delivery_method = :smtp
+  # config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 
-  config.action_mailer.default_url_options = { host: 'freeshelf.herokuapp.com' }
-  config.action_mailer.delivery_method   = :mandrill
+  config.action_mailer.smtp_settings = {
+      :address   => "smtp.mandrillapp.com",
+      :port      => 25, # ports 587 and 2525 are also supported with STARTTLS
+      :enable_starttls_auto => true, # detects and uses STARTTLS
+      :user_name => "app27189379@heroku.com",
+      :password  => "IGM3JMr-lPvrWLLK_IAWPg", # SMTP password is any valid API key
+      :authentication => 'plain', # Mandrill supports 'plain' or 'login'
+      :domain => 'irecipe.com', # your domain to identify your server when connecting
+  }
 
 
   end
