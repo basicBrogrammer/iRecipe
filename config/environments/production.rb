@@ -88,7 +88,7 @@ Rails.application.configure do
   # production.rb, test.rb, development.rb or application.rb
 
 
-  # config.action_mailer.default_url_options = { host: 'localhost:3000' }
+  config.action_mailer.default_url_options = { host: 'glacial-escarpment-1671.herokuapp.com' }
   config.action_mailer.delivery_method = :smtp
   # config.action_mailer.smtp_settings = { :address => "localhost", :port => 1025 }
 
