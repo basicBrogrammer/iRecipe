@@ -44,6 +44,7 @@ GEM
       thread_safe (~> 0.1)
       warden (~> 1.2.3)
     erubis (2.7.0)
+    excon (0.37.0)
     execjs (2.2.1)
     foundation-rails (5.3.0.1)
       railties (>= 3.1.0)
@@ -60,6 +61,9 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    mandrill-api (1.0.52)
+      excon (>= 0.16.0, < 1.0)
+      json (>= 1.7.7, < 2.0)
     mime-types (1.25.1)
     minitest (5.3.5)
     multi_json (1.10.1)
@@ -137,6 +141,7 @@ DEPENDENCIES
   foundation-rails
   jbuilder (~> 2.0)
   jquery-rails
+  mandrill-api
   pg
   rails (= 4.1.1)
   rails_12factor

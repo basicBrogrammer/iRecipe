@@ -48,4 +48,5 @@ gem 'spring',        group: :development
 gem 'devise'
 gem 'foundation-rails'
 gem 'rails_12factor', group: :production
+gem 'mandrill-api'
 

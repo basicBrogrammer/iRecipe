@@ -84,4 +84,21 @@ Rails.application.configure do
   config.serve_static_assets = true
   config.assets.compile = true
   config.assets.digest = true
-end
+
+  # production.rb, test.rb, development.rb or application.rb
+
+  IRecipe::Application.configure do
+    config.action_mailer.smtp_settings = {
+        :address   => "smtp.mandrillapp.com",
+        :port      => 587, # ports 587 and 2525 are also supported with STARTTLS
+        :enable_starttls_auto => true, # detects and uses STARTTLS
+        :user_name =>      ENV['MANDRILL_USERNAME'],
+        :password =>       ENV['MANDRILL_APIKEY'],
+        :domain =>         'heroku.com',
+        :authentication => :plain
+    }
+
+    ActionMailer::Base.delivery_method = :smtp
+  end
+
+
