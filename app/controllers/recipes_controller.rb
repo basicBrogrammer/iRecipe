@@ -29,7 +29,7 @@ class RecipesController < ApplicationController
     @recipe = Recipe.new(recipe_params)
 
     if @recipe.save
-      redirect_to @recipe, notice: "Your recipe was successfully created."
+      redirect_to dashboard_index_path, notice: "Your recipe was successfully created."
     else
       render :new
     end
