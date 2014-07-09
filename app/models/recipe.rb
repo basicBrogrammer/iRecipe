@@ -1,4 +1,5 @@
 class Recipe < ActiveRecord::Base
+  acts_as_taggable
   mount_uploader :meal, MealUploader
 
   def link

@@ -6,7 +6,11 @@ class RecipesController < ApplicationController
   # GET /recipes
   # GET /recipes.json
   def index
-    @recipes = Recipe.all
+    @recipes = Recipe.includes(:tags)
+  end
+  def tags
+    @tag = params[:tag]
+    @books = Recipe.tagged_with(@tag).includes(:tags)
   end
 
   # GET /recipes/1
@@ -65,7 +69,7 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:description, :meal)
+      params.require(:recipe).permit(:description, :meal, :title,:tag_list)
     end
 end
 

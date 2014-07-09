@@ -23,7 +23,11 @@
 
     <ul class="small-block-grid-3">
       <% @recipes.each do |x| %>
-      <li><%=x.description%> <h3>title one </h3></li>
+      <li><%=x.description%> <h3><%= x.title %> <%= image_tag(x.meal.thumb.url) %>
+        <% x.tags.each do |tag| %>
+            <%= tag %>
+        <%end%>
+      </h3></li>
         <% end %>
     </ul>
   </div>
