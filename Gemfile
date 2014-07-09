@@ -50,3 +50,5 @@ gem 'foundation-rails'
 gem 'rails_12factor', group: :production
 gem 'mandrill-api'
 
+gem 'carrierwave'
+gem 'mini_magick'
