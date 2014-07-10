@@ -53,4 +53,5 @@ gem 'mandrill-api'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'acts-as-taggable-on'
+gem "cocoon"
 

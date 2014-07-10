@@ -10,23 +10,42 @@
       </ul>
     </div>
   <% end %>
+
     <div class="field">
-      <%= f.label :tag_list %><br>
-      <%= f.text_field :tag_list%>
+      <%= f.text_field :title, placeholder: "title" %>
     </div>
-  <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
-  </div>
     <div class="field">
-      <%= f.label :title %><br>
-      <%= f.text_field :title %>
+      <%= f.text_area :description, placeholder: "Summary"  %>
     </div>
-  <div class="field">
-    <%= f.label :meal %><br>
-    <%= f.file_field :meal %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+
+    <h4>Ingredients</h4>
+    <div id = "ingredients">
+      <%= f.fields_for :ingredients do |i| %>
+          <div class = "field recipe_ingredients">
+            <%= render 'ingredient_fields', :f => i %>
+          </div>
+      <% end %>
+      <%= link_to_add_association "Add Ingredient", f, :ingredients %>
+    </div>
+    <h4>Steps</h4>
+    <div id = "ingredients">
+      <%= f.fields_for :steps do |i| %>
+          <div class = "field recipe_ingredients">
+            <%= render 'step_fields', :f => i %>
+          </div>
+      <% end %>
+      <%= link_to_add_association "Add Another Step", f, :steps %>
+    </div>
+
+    <div class="field">
+      <%= f.text_field :tag_list, placeholder: "Tags (hint: sepperate tags with commas)" %>
+    </div>
+
+    <div class="field">
+      <p>Add a picture</p>
+      <%= f.file_field :meal%>
+    </div>
+    <div class="actions">
+      <%= f.submit class:"round button" %>
+    </div>
 <% end %>

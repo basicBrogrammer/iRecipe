@@ -22,4 +22,43 @@ ul{
 }
 body{
     background-image: url("purty_wood.png");
+    font-family: sans-serif;
+}
+.side-nav{
+    margin: 10%;
+}
+.top{
+    margin:10%;
+}
+.round.button{
+    color: white;
+}
+.container{
+    background-image: url("crossword.png");
+    min-height: 600px;
+}
+.inline-list h2{
+    margin-top: 20%;
+    float:left;
+}
+#image{
+    float: right;
+    margin: 2% 10%;
+}
+#tags{
+    margin:2px;
+}
+#steps{
+    float:left;
+    margin-left: 10%;
+    font-size: 1.5em;
+}
+#steps li{
+    font-size: 1.5em;
+}
+.recipe-info{
+    float:left;
+}
+#pic{
+    float:right;
 }

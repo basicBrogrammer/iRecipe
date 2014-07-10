@@ -21,6 +21,7 @@ class RecipesController < ApplicationController
   # GET /recipes/new
   def new
     @recipe = Recipe.new
+    @recipe.ingredients.build
   end
 
   # GET /recipes/1/edit
@@ -31,6 +32,7 @@ class RecipesController < ApplicationController
   # POST /recipes.json
   def create
     @recipe = Recipe.new(recipe_params)
+
 
     if @recipe.save
       redirect_to dashboard_index_path, notice: "Your recipe was successfully created."
@@ -44,7 +46,7 @@ class RecipesController < ApplicationController
   def update
 
       if @recipe.update(recipe_params)
-        redirect_to @recipe, notice: "Your recipe was updated successfully. "
+        redirect_to dashboard_index_path, notice: "Your recipe was updated successfully. "
       else
         render :edit
       end
@@ -56,7 +58,7 @@ class RecipesController < ApplicationController
   def destroy
     @recipe.destroy
     respond_to do |format|
-      format.html { redirect_to recipes_url, notice: 'Recipe was successfully destroyed.' }
+      format.html { redirect_to dashboard_index_path, notice: 'Recipe was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -69,7 +71,9 @@ class RecipesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def recipe_params
-      params.require(:recipe).permit(:description, :meal, :title,:tag_list)
+      params.require(:recipe).permit(:description, :meal, :title,:tag_list,
+                                     ingredients_attributes: [:id, :item, :amount, :_destroy],
+                                     steps_attributes: [:id, :procedure, :_destroy])
     end
 end
 

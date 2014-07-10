@@ -1,34 +1,39 @@
-<div class="row">
+<div class="container">
+<div class="row top">
   <div class="large-8 columns">
     <h1>Welcome to the dashboard</h1>
   </div>
   <div class="large-2 offset-2 columns">
-<%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "tiny round button" %>
+    <%= link_to "Sign Out", destroy_user_session_path, method: :delete, class: "tiny round button top" %>
   </div>
-
-
 </div>
+    <div class="row">
 
-<div class="row">
+      <div class="large-3 columns">
+        <ul class="side-nav">
+          <li><%= link_to "Create a Recipe", new_recipe_path, class: "round button "%></li>
+          <!--<li><a href="#">Link 2</a></li>-->
 
-  <div class="large-4 columns">
-    <ul class="side-nav">
-      <li><%= link_to "Create a Recipe", new_recipe_path %></li>
-      <li><a href="#">Link 2</a></li>
-      <li><a href="#">Link 3</a></li>
-      <li><a href="#">Link 4</a></li>
-    </ul>
-  </div>
-  <div class="large-8 columns">
+        </ul>
+      </div>
+      <div class="large-9 columns">
 
-    <ul class="small-block-grid-3">
-      <% @recipes.each do |x| %>
-      <li><%=x.description%> <h3><%= x.title %> <%= image_tag(x.meal.thumb.url) %>
-        <% x.tags.each do |tag| %>
-            <%= tag %>
-        <%end%>
-      </h3></li>
-        <% end %>
-    </ul>
-  </div>
+        <ul class="small-block-grid-3">
+
+          <% @recipes.each do |x| %>
+          <li><div id="pic"> <%= image_tag(x.meal.thumb.url) %></div>
+            <div class="recipe-info">
+            <h3><%= link_to "#{x.title}", recipe_path(x.id) %></h3>
+           <p><%=link_to "#{x.description}", recipe_path(x.id)%></p>
+            </div>
+            <ul class="inline-list">
+                <% x.tags.each do |tag| %>
+                    <li id="tags"><%= link_to tag, "#",class: "tiny radius label"  %></li>
+                <%end%>
+            </ul>
+          </li>
+            <% end %>
+        </ul>
+      </div>
+    </div>
 </div>

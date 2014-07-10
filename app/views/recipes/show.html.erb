@@ -1,14 +1,52 @@
+<div class="container">
 <p id="notice"><%= notice %></p>
+<div class="row">
+  <div class="large-4 columns">
+    <ul class="side-nav">
+      <li><%= link_to "Home", dashboard_index_path, class: "round button "%></li>
+      <li><%= link_to 'Edit', edit_recipe_path(@recipe), class: "round button " %> </li>
+      <!--<li><a href="#">Link 3</a></li>-->
+      <!--<li><a href="#">Link 4</a></li>-->
+    </ul>
 
-<p>
-  <strong>Description:</strong>
-  <%= @recipe.description %>
-</p>
+  </div>
+  <div class="large-8 columns">
+    <ul class="inline-list">
+      <li> <h2> <%= @recipe.title %></h2> </li>
+      <li id="image"> <%= image_tag(@recipe.meal.url) %></li>
+    </ul>
 
-<p>
-  <strong>Meal:</strong>
-  <%= @recipe.meal %>
-</p>
+      <ul class="inline-list">
+        <li>Tags:</li>
+        <% @recipe.tags.each do |tag| %>
+            <li id="tags"><%= link_to tag, "#",class: "tiny radius label"  %></li>
+        <%end%>
+      </ul>
+        <p>
+          <strong>Summary:</strong>
+          <%= @recipe.description %>
+        </p>
 
-<%= link_to 'Edit', edit_recipe_path(@recipe) %> |
-<%= link_to 'Back', recipes_path %>
+      <div class="large-3 columns">
+        <strong>Ingredients:</strong>
+        <ul>
+          <% @recipe.ingredients.each do |ingredient| %>
+              <li><%= ingredient.amount %> <%= ingredient.item %></li>
+          <%end %>
+        </ul>
+      </div>
+
+      <div class="large-6 columns" id="steps">
+        <strong>Steps:</strong>
+        <ol>
+          <% @recipe.steps.each do |step| %>
+              <li><%= step.procedure %></li>
+          <%end %>
+        </ol>
+      </div>
+    <!--</div>-->
+
+    </div>
+  </div>
+
+</div>
